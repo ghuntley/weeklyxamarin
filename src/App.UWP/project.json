@@ -1,0 +1,24 @@
+﻿{
+  "dependencies": {
+    "lager": "0.4.2",
+    "Microsoft.ApplicationInsights": "2.0.1",
+    "Microsoft.ApplicationInsights.PersistenceChannel": "1.2.3",
+    "Microsoft.ApplicationInsights.WindowsApps": "1.1.1",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+    "reactiveui": "7.0.0.1463154231",
+    "reactiveui-events": "7.0.0.1463154231",
+    "refit": "2.4.1",
+    "splat": "1.6.2"
+  },
+  "frameworks": {
+    "uap10.0": {}
+  },
+  "runtimes": {
+    "win10-arm": {},
+    "win10-arm-aot": {},
+    "win10-x86": {},
+    "win10-x86-aot": {},
+    "win10-x64": {},
+    "win10-x64-aot": {}
+  }
+}
