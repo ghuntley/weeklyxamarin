@@ -9,12 +9,12 @@ using System.Web;
 
 namespace WeeklyXamarin.Api.Services
 {
-    public class AuthenticatedHttpClientHandler : HttpClientHandler
+    public class CuratedApiAuthenticationHandler : HttpClientHandler
     {
         private readonly string _publicationKey;
         private readonly string _apiKey;
 
-        public AuthenticatedHttpClientHandler(string publicationKey, string apiKey)
+        public CuratedApiAuthenticationHandler(string publicationKey, string apiKey)
         {
             _publicationKey = publicationKey;
             _apiKey = apiKey;
@@ -22,11 +22,10 @@ namespace WeeklyXamarin.Api.Services
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var authorization = request.Headers.Authorization;
-            if (authorization != null)
-            {
-                request.Headers.Authorization = new AuthenticationHeaderValue(authorization.Scheme, string.Format("Token token=\"{0}\"", _apiKey));
-            }
+            request.Headers.Authorization = new AuthenticationHeaderValue("Token", $"token=\"{_apiKey}\"");
+
+            var requestUrl = $"{request.RequestUri.Scheme}://{request.RequestUri.Host}:{request.RequestUri.Port}/{_publicationKey}{request.RequestUri.PathAndQuery}";
+            request.RequestUri = new Uri(requestUrl);
 
             return await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
         }

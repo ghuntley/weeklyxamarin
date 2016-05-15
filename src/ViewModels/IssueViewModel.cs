@@ -7,7 +7,7 @@ using ReactiveUI;
 
 namespace WeeklyXamarin.ViewModels
 {
-    public class WebBrowserViewModel : ReactiveObject
+    public class IssueViewModel : ReactiveObject
     {
     }
 }

@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Refit;
 
 namespace WeeklyXamarin.Services.Api
 {
-    public interface IDuckDuckGoApi
+    public interface IWeeklyXamarinApiService
     {
-        [Get("/?q={query}&format=json")]
-        IObservable<DuckDuckGoSearchResult> Search(string query);
+        IWeeklyXamarinApi WeeklyXamarinApi { get; }
     }
 }

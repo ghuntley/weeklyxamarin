@@ -27,8 +27,8 @@ namespace WeeklyXamarin.App
             _networkConnectivityService= new Lazy<INetworkConnectivityService>(CreateNetworkConnectivityService);
             _blobCache = new Lazy<IBlobCache>(CreateBlobCache);
             _stateService = new Lazy<IStateService>(CreateStateService);
-            _duckDuckGoApiService = new Lazy<IDuckDuckGoApiService>(CreateDuckDuckGoApiService);
-            _searchService = new Lazy<ISearchService>(CreateSearchService);
+            _duckDuckGoApiService = new Lazy<IWeeklyXamarinApiService>(CreateDuckDuckGoApiService);
+            _weeklyXamarinService = new Lazy<IWeeklyXamarinService>(CreateSearchService);
         }
     }
 }

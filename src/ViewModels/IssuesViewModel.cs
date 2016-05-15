@@ -7,28 +7,30 @@ using System.Text;
 using System.Threading.Tasks;
 using WeeklyXamarin.Services.Api;
 using WeeklyXamarin.Services.NetworkConnectivity;
-using WeeklyXamarin.Services.Search;
 using WeeklyXamarin.Services.State;
 using WeeklyXamarin.Utility;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
+using ReactiveUI.Legacy;
+using WeeklyXamarin.Services.WeeklyXamarin;
+using ReactiveCommand = ReactiveUI.ReactiveCommand;
 
 namespace WeeklyXamarin.ViewModels
 {
-    public class SearchViewModel : ReactiveObject
+    public class IssuesViewModel : ReactiveObject
     {
         private readonly INetworkConnectivityService _networkConnectivityService;
-        private readonly ISearchService _searchService;
+        private readonly IWeeklyXamarinService _weeklyXamarinService;
 
-        public SearchViewModel(INetworkConnectivityService networkConnectivityService, ISearchService searchService)
+        public IssuesViewModel(INetworkConnectivityService networkConnectivityService, IWeeklyXamarinService weeklyXamarinService)
         {
             Ensure.ArgumentNotNull(networkConnectivityService, nameof(networkConnectivityService));
-            Ensure.ArgumentNotNull(searchService, nameof(searchService));
+            Ensure.ArgumentNotNull(weeklyXamarinService, nameof(weeklyXamarinService));
 
             _networkConnectivityService = networkConnectivityService;
-            _searchService = searchService;
+            _weeklyXamarinService = weeklyXamarinService;
 
-            SearchResults = new ReactiveList<DuckDuckGoSearchResult>();
+            SearchResults = new ReactiveList<IssuesResult>();
 
             // Here we're describing here, in a *declarative way*, the conditions in
             // which the Search command is enabled.  Now our Command IsEnabled is
@@ -40,7 +42,7 @@ namespace WeeklyXamarin.ViewModels
             // guarantees that this block will only run exactly once at a time, and
             // that the CanExecute will auto-disable and that property IsExecuting will
             // be set according whilst it is running.
-            Search = ReactiveCommand.CreateAsyncObservable(canSearch, x => _searchService.Search(SearchQuery));
+            Search = ReactiveCommand.CreateAsyncObservable(canSearch, x => _weeklyXamarinService.Search(SearchQuery));
 
             // ReactiveCommands are themselves IObservables, whose value are the results
             // from the async method, guaranteed to arrive on the UI thread. We're going
@@ -70,10 +72,10 @@ namespace WeeklyXamarin.ViewModels
         [Reactive]
         public string SearchQuery { get; set; }
 
-        public ReactiveCommand<IEnumerable<DuckDuckGoSearchResult>> Search { get; private set; }
+        public ReactiveCommand<IEnumerable<IssuesResult>> Search { get; private set; }
 
         public ReactiveCommand<Unit> OpenWebBrowser { get; private set; }
 
-        public ReactiveList<DuckDuckGoSearchResult> SearchResults { get; private set; }
+        public ReactiveList<IssuesResult> SearchResults { get; private set; }
     }
 }

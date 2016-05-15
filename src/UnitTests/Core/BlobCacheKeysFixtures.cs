@@ -18,7 +18,7 @@ namespace WeeklyXamarin.UnitTests.Core
         [Theory]
         public void SearchQueryKeyShouldBeExpected(string query, string expected)
         {
-            var sut = BlobCacheKeys.GetKeyForSearch(query);
+            var sut = BlobCacheKeys.Issues(query);
 
             sut.Should().Be(expected);
         }

@@ -34,15 +34,14 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Api\DuckDuckGoApiService.cs" />
-    <Compile Include="Api\DuckDuckGoServiceModel.cs" />
-    <Compile Include="Api\IDuckDuckGoApi.cs" />
-    <Compile Include="Api\IDuckDuckGoApiService.cs" />
+    <Compile Include="Api\WeeklyXamarinServiceModel.cs" />
+    <Compile Include="Api\IWeeklyXamarinApi.cs" />
+    <Compile Include="Api\IWeeklyXamarinApiService.cs" />
     <Compile Include="Delay\IDelayService.cs" />
     <Compile Include="..\CommonAssemblyInfo.cs" />
     <Compile Include="NetworkConnectivity\INetworkConnectivityService.cs" />
-    <Compile Include="Search\ISearchService.cs" />
     <Compile Include="State\IStateService.cs" />
+    <Compile Include="WeeklyXamarin\IWeeklyXamarinService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />

@@ -190,6 +190,10 @@
       <Project>{41a3af92-317a-4ea3-b048-5f6fd8d66944}</Project>
       <Name>Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UI\UI.csproj">
+      <Project>{8f7851cf-bcbb-43ea-9be1-69e48ff3bfd5}</Project>
+      <Name>UI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\Utility.csproj">
       <Project>{a76dc2a7-724c-4da9-8358-dfa012726ff8}</Project>
       <Name>Utility</Name>

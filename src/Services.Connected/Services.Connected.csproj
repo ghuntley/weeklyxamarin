@@ -34,11 +34,11 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Api\DuckDuckGoApiService.cs" />
+    <Compile Include="Api\WeeklyXamarinApiService.cs" />
     <Compile Include="Delay\DelayService.cs" />
     <Compile Include="..\CommonAssemblyInfo.cs" />
     <Compile Include="NetworkConnectivity\NetworkConnectivityService.cs" />
-    <Compile Include="Search\SearchService.cs" />
+    <Compile Include="WeeklyXamarin\WeeklyXamarinService.cs" />
     <Compile Include="State\StateService.cs" />
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
   </ItemGroup>
@@ -73,7 +73,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="HttpClientDiagnostics, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HttpClientDiagnostics.1.1.1.1462519417\lib\portable-net45+netcore45+win8+wpa81+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10\HttpClientDiagnostics.dll</HintPath>
+      <HintPath>..\packages\HttpClientDiagnostics.1.1.1.1462518862\lib\portable-net45+netcore45+win8+wpa81+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10\HttpClientDiagnostics.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Lager, Version=0.4.2.0, Culture=neutral, processorArchitecture=MSIL">

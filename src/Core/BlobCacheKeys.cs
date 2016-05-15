@@ -8,6 +8,7 @@ namespace WeeklyXamarin.Core
 {
     public static class BlobCacheKeys
     {
-        public static string GetKeyForSearch(string query) => string.Format("searchQuery-{0}", query);
+        public static string GetKeyForIssues(int issuesPerPage, int page) => $"issues-{issuesPerPage}-{page}";
+        public static string GetKeyForIssue(int issueNumber) => $"issue-{issueNumber}";
     }
 }
